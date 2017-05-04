@@ -126,17 +126,6 @@
     "locationTop" : 150.0,
     "playbookRetryEnabled" : false
   }, {
-    "id" : 6473,
-    "appCatalogItem" : {
-      "programName" : "Value Lookup",
-      "programVersion" : "1.0.0"
-    },
-    "name" : "Get Key / Value 1",
-    "jobParameterList" : [ ],
-    "locationLeft" : 470.0,
-    "locationTop" : 50.0,
-    "playbookRetryEnabled" : false
-  }, {
     "id" : 6474,
     "appCatalogItem" : {
       "programName" : "Json Path",
@@ -176,28 +165,6 @@
     } ],
     "locationLeft" : 670.0,
     "locationTop" : 90.0,
-    "playbookRetryEnabled" : false
-  }, {
-    "id" : 6475,
-    "appCatalogItem" : {
-      "programName" : "TCPB - Slack Messaging v1.0",
-      "programVersion" : "1.0.0"
-    },
-    "name" : "Send Slack Message 1",
-    "jobParameterList" : [ ],
-    "locationLeft" : 950.0,
-    "locationTop" : 150.0,
-    "playbookRetryEnabled" : false
-  }, {
-    "id" : 6476,
-    "appCatalogItem" : {
-      "programName" : "TCPB - Slack Messaging v1.0",
-      "programVersion" : "1.0.0"
-    },
-    "name" : "Send Slack Message 2",
-    "jobParameterList" : [ ],
-    "locationLeft" : 1060.0,
-    "locationTop" : 10.0,
     "playbookRetryEnabled" : false
   }, {
     "id" : 6477,
@@ -358,8 +325,10 @@
     "anyOrg" : false,
     "orFilters" : false,
     "fireOnDuplicate" : false,
+    "userActionTypes" : null,
+    "renderBodyAsTip" : false,
     "playbookTriggerFilterList" : [ ],
     "outputVariables" : null
   } ],
-  "dateExported" : "2/18/17 1:26 AM"
+  "dateExported" : "5/4/17 9:02 PM"
 }
