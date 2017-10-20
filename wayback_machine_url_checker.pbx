@@ -3,10 +3,12 @@
   "name" : "Web Archive Check",
   "panX" : 53.0,
   "panY" : 87.0,
+  "logLevel" : "WARN",
   "jobList" : [ {
-    "id" : 13142,
+    "id" : 8241,
     "appCatalogItem" : {
       "programName" : "Http Client",
+      "displayName" : "HTTP Client",
       "programVersion" : "1.0.0"
     },
     "name" : "Wayback API Call",
@@ -17,54 +19,14 @@
       "value" : "http://archive.org/wayback/available"
     }, {
       "appCatalogItemParameter" : {
-        "paramName" : "action"
+        "paramName" : "httpclient_proxy"
       },
-      "value" : "GET"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "parameters"
-      },
-      "value" : "[]"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "headers"
-      },
-      "value" : "[]"
+      "value" : "false"
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "ignore_ssl_trust"
       },
       "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "httpclient_proxy"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "parameters"
-      },
-      "value" : "[]"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "body"
-      },
-      "value" : null
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "url"
-      },
-      "value" : "http://archive.org/wayback/available"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "httpclient_proxy"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "body"
-      },
-      "value" : null
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "action"
@@ -77,60 +39,31 @@
       "value" : "[]"
     }, {
       "appCatalogItemParameter" : {
-        "paramName" : "ignore_ssl_trust"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "url"
-      },
-      "value" : "http://archive.org/wayback/available"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "action"
-      },
-      "value" : "GET"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "headers"
-      },
-      "value" : "[]"
+        "paramName" : "body"
+      }
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "parameters"
       },
-      "value" : "[{\"key\":\"url\",\"value\":\"#Trigger:1621:trg.tc.url!String\"}]"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "httpclient_proxy"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "body"
-      },
-      "value" : null
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "ignore_ssl_trust"
-      },
-      "value" : "false"
+      "value" : "[{\"key\":\"url\",\"value\":\"#Trigger:731:trg.action.item!String\"}]"
     } ],
-    "locationLeft" : 230.0,
+    "locationLeft" : 200.0,
     "locationTop" : 100.0,
+    "outputVariables" : "[{\"name\":\"http_client.response.output_content\",\"type\":\"String\"}]",
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13143,
+    "id" : 8242,
     "appCatalogItem" : {
       "programName" : "Json Path",
+      "displayName" : "Filter JSON Path",
       "programVersion" : "1.0.0"
     },
     "name" : "Get Archived Snapshots",
     "jobParameterList" : [ {
       "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
+        "paramName" : "json_path"
       },
-      "value" : "false"
+      "value" : "archived_snapshots"
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "stripQuotes"
@@ -140,45 +73,17 @@
       "appCatalogItemParameter" : {
         "paramName" : "input_json"
       },
-      "value" : "#App:6471:http_client.response.output_content!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:6471:http_client.response.output_content!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "archived_snapshots"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "archived_snapshots"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:13142:http_client.response.output_content!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "archived_snapshots"
+      "value" : "#App:8241:http_client.response.output_content!String"
     } ],
     "locationLeft" : 440.0,
     "locationTop" : 150.0,
+    "outputVariables" : "[{\"name\":\"json_path.output\",\"type\":\"String\"}]",
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13144,
+    "id" : 8243,
     "appCatalogItem" : {
       "programName" : "Json Path",
+      "displayName" : "Filter JSON Path",
       "programVersion" : "1.0.0"
     },
     "name" : "Get Most Recent Snapshot",
@@ -189,21 +94,6 @@
       "value" : "closest"
     }, {
       "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:6472:json_path.output!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "closest"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
         "paramName" : "stripQuotes"
       },
       "value" : "false"
@@ -211,43 +101,25 @@
       "appCatalogItemParameter" : {
         "paramName" : "input_json"
       },
-      "value" : "#App:6472:json_path.output!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "closest"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:13143:json_path.output!String"
+      "value" : "#App:8242:json_path.output!String"
     } ],
     "locationLeft" : 670.0,
     "locationTop" : 90.0,
+    "outputVariables" : "[{\"name\":\"json_path.output\",\"type\":\"String\"}]",
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13145,
+    "id" : 8244,
     "appCatalogItem" : {
       "programName" : "TCPB - Slack Messaging v1.0",
-      "programVersion" : "1.0.0"
+      "displayName" : "Send Slack Message",
+      "programVersion" : "1.0.1"
     },
     "name" : "URL Archived Message",
     "jobParameterList" : [ {
       "appCatalogItemParameter" : {
         "paramName" : "message"
       },
-      "value" : "URL #Trigger:595:trg.tc.weblink!String has been archived by the wayback machine on #App:6479:json_path.output!String ."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_api_token"
-      },
-      "value" : ""
+      "value" : "URL #Trigger:731:trg.action.item!String was archived by the wayback machine on #App:8246:json_path.output!String (#App:8247:json_path.output!String )."
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "slack_recipient"
@@ -258,64 +130,20 @@
         "paramName" : "slack_api_token"
       },
       "value" : ""
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "message"
-      },
-      "value" : "URL #Trigger:1621:trg.tc.url!String has been archived by the wayback machine on #App:13147:json_path.output!String ."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_recipient"
-      },
-      "value" : "slack-channel"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "message"
-      },
-      "value" : "URL #Trigger:1621:trg.tc.url!String was archived by the wayback machine on #App:13147:json_path.output!String (#App:13148:json_path.output!String )."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_api_token"
-      },
-      "value" : ""
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_recipient"
-      },
-      "value" : "slack-channel"
     } ],
     "locationLeft" : 1320.0,
     "locationTop" : 40.0,
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13146,
+    "id" : 8245,
     "appCatalogItem" : {
       "programName" : "TCPB - Slack Messaging v1.0",
-      "programVersion" : "1.0.0"
+      "displayName" : "Send Slack Message",
+      "programVersion" : "1.0.1"
     },
     "name" : "URL Unarchived Message",
     "jobParameterList" : [ {
       "appCatalogItemParameter" : {
-        "paramName" : "slack_api_token"
-      },
-      "value" : ""
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "message"
-      },
-      "value" : "URL #Trigger:595:trg.tc.url!String has never been archived in the wayback machine."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_recipient"
-      },
-      "value" : "slack-channel"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_api_token"
-      },
-      "value" : ""
-    }, {
-      "appCatalogItemParameter" : {
         "paramName" : "slack_recipient"
       },
       "value" : "slack-channel"
@@ -323,17 +151,7 @@
       "appCatalogItemParameter" : {
         "paramName" : "message"
       },
-      "value" : "URL #Trigger:595:trg.tc.url!String has never been archived in the wayback machine."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "message"
-      },
-      "value" : "URL #Trigger:1621:trg.tc.url!String has never been archived in the wayback machine."
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "slack_recipient"
-      },
-      "value" : "slack-channel"
+      "value" : "URL #Trigger:731:trg.action.item!String  has never been archived in the wayback machine."
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "slack_api_token"
@@ -344,44 +162,15 @@
     "locationTop" : 160.0,
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13147,
+    "id" : 8246,
     "appCatalogItem" : {
       "programName" : "Json Path",
+      "displayName" : "Filter JSON Path",
       "programVersion" : "1.0.0"
     },
     "name" : "Get Date of Most Recent Snapshot",
     "jobParameterList" : [ {
       "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:6474:json_path.output!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:6474:json_path.output!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "timestamp"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "timestamp"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
         "paramName" : "stripQuotes"
       },
       "value" : "false"
@@ -389,7 +178,7 @@
       "appCatalogItemParameter" : {
         "paramName" : "input_json"
       },
-      "value" : "#App:13144:json_path.output!String"
+      "value" : "#App:8243:json_path.output!String"
     }, {
       "appCatalogItemParameter" : {
         "paramName" : "json_path"
@@ -398,16 +187,38 @@
     } ],
     "locationLeft" : 900.0,
     "locationTop" : 40.0,
+    "outputVariables" : "[{\"name\":\"json_path.output\",\"type\":\"String\"}]",
     "playbookRetryEnabled" : false
   }, {
-    "id" : 13148,
+    "id" : 8247,
     "appCatalogItem" : {
       "programName" : "Json Path",
+      "displayName" : "Filter JSON Path",
       "programVersion" : "1.0.0"
     },
     "name" : "Get URL to Snapshot",
     "jobParameterList" : [ {
       "appCatalogItemParameter" : {
+        "paramName" : "stripQuotes"
+      },
+      "value" : "false"
+    }, {
+      "appCatalogItemParameter" : {
+        "paramName" : "input_json"
+      },
+      "value" : "#App:8243:json_path.output!String"
+    }, {
+      "appCatalogItemParameter" : {
+        "paramName" : "input_json"
+      },
+      "value" : "#App:8243:json_path.output!String"
+    }, {
+      "appCatalogItemParameter" : {
+        "paramName" : "json_path"
+      },
+      "value" : "url"
+    }, {
+      "appCatalogItemParameter" : {
         "paramName" : "json_path"
       },
       "value" : "url"
@@ -416,90 +227,62 @@
         "paramName" : "stripQuotes"
       },
       "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:13144:json_path.output!String"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "json_path"
-      },
-      "value" : "url"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "stripQuotes"
-      },
-      "value" : "false"
-    }, {
-      "appCatalogItemParameter" : {
-        "paramName" : "input_json"
-      },
-      "value" : "#App:13144:json_path.output!String"
     } ],
     "locationLeft" : 1110.0,
     "locationTop" : 40.0,
+    "outputVariables" : "[{\"name\":\"json_path.output\",\"type\":\"String\"}]",
     "playbookRetryEnabled" : false
   } ],
   "playbookConnectionList" : [ {
     "type" : "Pass",
     "isCircularOnTarget" : false,
-    "targetJobId" : 13142,
-    "sourceTriggerId" : 1621
+    "sourceJobId" : 8241,
+    "targetJobId" : 8242
   }, {
     "type" : "Pass",
     "isCircularOnTarget" : false,
-    "sourceJobId" : 13142,
-    "targetJobId" : 13143
+    "sourceJobId" : 8242,
+    "targetJobId" : 8243
   }, {
     "type" : "Pass",
     "isCircularOnTarget" : false,
-    "sourceJobId" : 13143,
-    "targetJobId" : 13144
-  }, {
-    "type" : "Pass",
-    "isCircularOnTarget" : false,
-    "sourceJobId" : 13144,
-    "targetJobId" : 13147
+    "sourceJobId" : 8243,
+    "targetJobId" : 8246
   }, {
     "type" : "Fail",
     "isCircularOnTarget" : false,
-    "sourceJobId" : 13144,
-    "targetJobId" : 13146
+    "sourceJobId" : 8243,
+    "targetJobId" : 8245
   }, {
     "type" : "Pass",
     "isCircularOnTarget" : false,
-    "sourceJobId" : 13147,
-    "targetJobId" : 13148
+    "sourceJobId" : 8246,
+    "targetJobId" : 8247
   }, {
     "type" : "Pass",
     "isCircularOnTarget" : false,
-    "sourceJobId" : 13148,
-    "targetJobId" : 13145
+    "sourceJobId" : 8247,
+    "targetJobId" : 8244
+  }, {
+    "type" : "Pass",
+    "isCircularOnTarget" : false,
+    "targetJobId" : 8241,
+    "sourceTriggerId" : 731
   } ],
   "playbookTriggerList" : [ {
-    "id" : 1621,
-    "name" : "URL Trigger 1",
-    "type" : "URL",
-    "eventType" : "Create",
-    "locationLeft" : 0.0,
-    "locationTop" : 160.0,
-    "dependsOnEntity" : null,
-    "dependsOnEntityDisplayValue" : null,
-    "httpResponseCode" : null,
-    "httpResponseCodeDisplayValue" : null,
-    "httpResponseHeader" : null,
-    "httpResponseBody" : null,
-    "httpResponseBodyDisplayValue" : null,
-    "scheduleType" : null,
-    "scheduleCronFormat" : null,
-    "anyOrg" : false,
+    "id" : 731,
+    "name" : "Query Web Archive for Indicator",
+    "type" : "UserAction",
+    "eventType" : "External",
+    "locationLeft" : -20.0,
+    "locationTop" : 150.0,
+    "httpResponseHeader" : "[]",
+    "anyOrg" : true,
     "orFilters" : false,
     "fireOnDuplicate" : false,
-    "userActionTypes" : null,
+    "userActionTypes" : "Host,URL",
     "renderBodyAsTip" : false,
-    "playbookTriggerFilterList" : [ ],
-    "outputVariables" : null
+    "outputVariables" : "[{\"name\":\"trg.action.item\",\"type\":\"String\"}]"
   } ],
-  "dateExported" : "6/2/17 12:05 PM"
+  "dateExported" : "10/20/17 1:57 PM"
 }
